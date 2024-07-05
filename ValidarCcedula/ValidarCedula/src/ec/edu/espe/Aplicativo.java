@@ -10,17 +10,50 @@ public class Aplicativo {
         Scanner lee = new Scanner(System.in);
         ValidarCedula cedulita = new ValidarCedula();
         Funcion cedulita1 = new Funcion();
+        String NumCedula = null;
         String dato;
-
-        System.out.println("Ingresa tu cedula : ");
-        String NumCedula = lee.nextLine();
         
-        System.out.println("Ingresa tu nombre:");
-        String nombre = lee.nextLine();
-        System.out.println("Ingresa tu apellido:");
-        String apellido = lee.nextLine();
-        System.out.println("Ingresa tu edad:");
-        String edad = lee.nextLine();
+        try{    
+            while(true){
+                System.out.println("Ingresa tu cedula : ");
+                NumCedula = lee.nextLine();  
+                
+                if(NumCedula.length()==10){
+                    break;
+                }
+                else{
+                    System.out.println("Imgresate mal la cedula esta debe tener 10 digitos enteros:");
+                }
+            }
+        } catch (Exception e){
+            System.out.println("Error: " + e.getMessage());
+            return;
+        }
+        
+        try{
+            while(true){
+                System.out.println("Ingresa tu nombre:");
+                String nombre = lee.nextLine();
+                
+                if(nombre.matches("[a-zA-Z]+")){
+                    break;
+                }
+                else{
+                    System.out.println("El nombre ingresado es incorrecto:");
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+            return;                        
+        }
+
+            System.out.println("Ingresa tu nombre:");
+            String nombre = lee.nextLine();
+            System.out.println("Ingresa tu apellido:");
+            String apellido = lee.nextLine();
+            System.out.println("Ingresa tu edad:");
+            String edad = lee.nextLine();
         
         
 
